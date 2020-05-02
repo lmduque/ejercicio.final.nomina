@@ -22,7 +22,7 @@ public class ProcesadorArchivo implements Runnable{
 		BasicConfigurator.configure();
 		while(true) {
 			try {
-				Thread.sleep(20000);
+				Thread.sleep(2000);
 				mensaje = LecturaArchivo.leerArchivo();
 				int cantidadRegistros = PoblarEstructura.tamanoHashMap();
 				if(cantidadRegistros == 3) {

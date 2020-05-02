@@ -4,7 +4,6 @@ import java.util.Collection;
 import java.util.HashMap;
 import java.util.Iterator;
 
-import org.apache.log4j.BasicConfigurator;
 import org.apache.log4j.LogManager;
 import org.apache.log4j.Logger;
 
@@ -12,20 +11,26 @@ import co.com.udem.nomina.dto.EmpleadoDTO;
 
 public class PoblarEstructura {
 
-	private static final HashMap<String, EmpleadoDTO> empleados = new HashMap<String, EmpleadoDTO>();
+	private static HashMap<String, EmpleadoDTO> empleados = new HashMap<String, EmpleadoDTO>();
 	private static final Logger logger = LogManager.getLogger(PoblarEstructura.class);
 	
+	private PoblarEstructura(){}
+	
 	public static void llenarHashMap(EmpleadoDTO empleadoDTO) {
-		empleados.put(empleadoDTO.getCedula(), empleadoDTO);
+		if ( !empleados.containsKey(empleadoDTO.getCedula()) )
+			empleados.put(empleadoDTO.getCedula(), empleadoDTO);
+	}
+
+	public static void vaciarHashMap() {
+		empleados = new HashMap<String, EmpleadoDTO>();
 	}
 
 	public static void imprimirHashMap() {
-		BasicConfigurator.configure();
 		Collection<EmpleadoDTO> coleccionEmpleados = empleados.values();
 		Iterator<EmpleadoDTO> iterator = coleccionEmpleados.iterator();
-		StringBuffer empleados = new StringBuffer();
-
+		
 		while (iterator.hasNext()) {
+			StringBuilder empleados = new StringBuilder();
 			EmpleadoDTO empleadoDTO = iterator.next();
 			empleados.append(empleadoDTO.getNombres());
 			empleados.append(",");
@@ -37,6 +42,7 @@ public class PoblarEstructura {
 			empleados.append(",");
 			empleados.append(empleadoDTO.getSalario());
 			logger.info(empleados.toString());
+		
 		}
 
 	}

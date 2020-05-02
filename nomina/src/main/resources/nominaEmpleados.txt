@@ -1,3 +1,5 @@
 Walter Armando,Llano Suarez,111111111,TECNICO,5000000
-Carlos Andres,Sanchez Flores,222222222,PLANEACION,4000000
+Carlos Andres,Sanchez Flores,111111111,PLANEACION,4000000
 Andrea Estefania,Valencia Lopez,333333333,ARQUITECTURA,6000000
+Walter Armando,Llano Suarez,888888,TECNICO,5000000
+Carlos Andres,Sanchez Flores,111111111,PLANEACION,4000000
